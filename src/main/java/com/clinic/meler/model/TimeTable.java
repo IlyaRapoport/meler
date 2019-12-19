@@ -4,21 +4,67 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "images")
+@Table(name = "timeTable")
 public class TimeTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private Date dateTime;
-    @OneToMany
+
+    @ManyToOne
+    @JoinColumn(name = "dentist_id")
     private Dentist dentist;
-    @OneToMany
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    public TimeTable() {
+    }
+
+    public TimeTable(Long id, Date dateTime, Dentist dentist, Patient patient) {
+        this.id = id;
+        this.dateTime = dateTime;
+        this.dentist = dentist;
+        this.patient = patient;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Dentist getDentist() {
+        return dentist;
+    }
+
+    public void setDentist(Dentist dentist) {
+        this.dentist = dentist;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }

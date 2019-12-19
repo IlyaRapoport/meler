@@ -1,0 +1,77 @@
+dentist
+  get:
+    description: Gets the list of dentists.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+
+                [
+                  {
+                    "id": "1",
+                    "dentist_name": "name",
+                    "dentist_surname": "surname",
+                    "dentist_cabinet": "first"
+                   },
+                  {
+                    "id": "2",
+                    "dentist_name": "name",
+                    "dentist_surname": "surname",
+                    "dentist_cabinet": "first"
+                   },
+                ]
+
+  post:
+    description: Creates a new dentist
+    body:
+      application/json:
+        example: |
+
+            {
+               "dentist_name": "name",
+               "dentist_surname": "surname",
+               "dentist_cabinet": "first"
+            }
+
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+               "dentist_name": "name",
+               "dentist_surname": "surname",
+               "dentist_cabinet": "first"
+            }
+
+patient
+  get:
+    description: Gets the list of patients.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+
+                [
+                  {
+                    "id": "1",
+                    "patient_name": "name",
+                    "patient_surname": "surname",
+                    "patient_pk": "1155556",
+                    "patient_telephone":"5545566",
+                    "patient_address":"dafdfdf",
+                    "patient_description":"patient_description"
+                   },
+                  {
+                    "id": "1",
+                                      "patient_name": "name",
+                                      "patient_surname": "surname",
+                                      "patient_pk": "1155556",
+                                      "patient_telephone":"5545566,
+                                      "patient_address":"dafdfdf",
+                                      "patient_description":"patient_description"
+                   },
+                ]
+

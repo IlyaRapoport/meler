@@ -25,7 +25,7 @@ public class DentistServiceImpl implements DentistService {
 
     @Override
     public List<Dentist> findBySurname(String surname) {
-        if(surname==null){
+        if (surname == null) {
             return dentistRepository.findAll();
         }
         return dentistRepository.findBySurname(surname);

@@ -1,7 +1,6 @@
 package com.clinic.meler.controllers;
 import com.clinic.meler.dto.PatientDto;
 import com.clinic.meler.mapper.PatientMapper;
-import com.clinic.meler.model.Patient;
 import com.clinic.meler.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,18 +30,18 @@ public class PatientController {
     }
 
     @PutMapping("/patient")
-    public Patient updatePatient(@RequestBody PatientDto patientDto) {
-        return patientService.updatePatient(patientMapper.dtoToPatient(patientDto));
+    public PatientDto updatePatient(@RequestBody PatientDto patientDto) {
+        return patientMapper.patientToDto(patientService.updatePatient(patientMapper.dtoToPatient(patientDto)));
     }
 
     @PostMapping("/patient")
-    public Patient createPatient(@RequestBody PatientDto patientDto) {
-        return patientService.createPatient(patientMapper.dtoToPatient(patientDto));
+    public PatientDto createPatient(@RequestBody PatientDto patientDto) {
+        return patientMapper.patientToDto(patientService.createPatient(patientMapper.dtoToPatient(patientDto)));
     }
 
     @DeleteMapping("/patient")
     public String deletePatient(@RequestParam String pk) {
-        patientService.deletePatient(patientService.findBy(pk,null,null));
+        patientService.deletePatient(patientService.findBy(pk, null, null));
         return "ok";
     }
 }

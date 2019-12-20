@@ -16,8 +16,8 @@ public class DentistDto {
     public DentistDto() {
     }
 
-    public DentistDto(Long id,String name, String surname, String cabinet) {
-        this.id=id;
+    public DentistDto(Long id, String name, String surname, String cabinet) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.cabinet = cabinet;

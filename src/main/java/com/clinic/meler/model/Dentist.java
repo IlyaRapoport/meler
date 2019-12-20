@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -24,18 +23,14 @@ public class Dentist {
     @Column
     private String cabinet;
 
-@OneToMany(mappedBy = "dentist")
-    private List<TimeTable> timeTables;
-
     public Dentist() {
     }
 
-    public Dentist(Long id, String name, String surname, String cabinet, List<TimeTable> timeTables) {
+    public Dentist(Long id, String name, String surname, String cabinet) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.cabinet = cabinet;
-        this.timeTables = timeTables;
     }
 
     public static DentistBuilder builder() {
@@ -74,14 +69,6 @@ public class Dentist {
         this.cabinet = cabinet;
     }
 
-    public List<TimeTable> getTimeTables() {
-        return timeTables;
-    }
-
-    public void setTimeTables(List<TimeTable> timeTables) {
-        this.timeTables = timeTables;
-    }
-
     public static class DentistBuilder {
         private Long id;
         private String name;
@@ -118,7 +105,7 @@ public class Dentist {
         }
 
         public Dentist build() {
-            return new Dentist(id, name, surname, cabinet, timeTable);
+            return new Dentist(id, name, surname, cabinet);
         }
 
         public String toString() {

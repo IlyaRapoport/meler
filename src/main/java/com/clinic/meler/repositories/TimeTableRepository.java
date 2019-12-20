@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Date;
 import java.util.List;
 
-public interface TimeTableRepository extends JpaRepository<TimeTable,Long> {
+public interface TimeTableRepository extends JpaRepository<TimeTable, Long> {
     List<TimeTable> findByDateTime(Date date);
 
     List<TimeTable> findByDentist(Dentist dentist);

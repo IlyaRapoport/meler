@@ -27,10 +27,10 @@ public class PatientServiceImpl implements PatientService {
         if (pk != null) {
             return patientRepository.findByPersonalCode(pk);
         }
-        if(surname!=null){
+        if (surname != null) {
             return patientRepository.findBySurname(surname);
         }
-        if (name!=null){
+        if (name != null) {
             return patientRepository.findByName(name);
         }
         return patientRepository.findAll();

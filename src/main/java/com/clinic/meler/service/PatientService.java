@@ -9,10 +9,11 @@ public interface PatientService {
 
     Patient createPatient(Patient patient);
 
-    List<Patient> findBy(String pk,String name,String surname);
+    List<Patient> findBy(String pk, String name, String surname);
 
     void deletePatient(List<Patient> patients);
 
     Patient updatePatient(Patient patient);
-Optional<Patient> findById(Long id);
+
+    Optional<Patient> findById(Long id);
 }

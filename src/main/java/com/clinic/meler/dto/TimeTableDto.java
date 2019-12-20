@@ -8,6 +8,11 @@ public class TimeTableDto {
 
     @JsonProperty("date_time")
     private Date dateTime;
+    @JsonProperty("dropdown")
+    private String dropdown;
+    @JsonProperty("description")
+    private String description;
+
     @JsonProperty("patient_id")
     private Long patientId;
     @JsonProperty("dentist_id")
@@ -16,9 +21,11 @@ public class TimeTableDto {
     public TimeTableDto() {
     }
 
-    public TimeTableDto(Long id, Date dateTime, Long patientId, Long dentistId) {
+    public TimeTableDto(Long id, Date dateTime, String dropdown, String description, Long patientId, Long dentistId) {
         this.id = id;
         this.dateTime = dateTime;
+        this.dropdown = dropdown;
+        this.description = description;
         this.patientId = patientId;
         this.dentistId = dentistId;
     }
@@ -37,6 +44,22 @@ public class TimeTableDto {
 
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getDropdown() {
+        return dropdown;
+    }
+
+    public void setDropdown(String dropdown) {
+        this.dropdown = dropdown;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getPatientId() {

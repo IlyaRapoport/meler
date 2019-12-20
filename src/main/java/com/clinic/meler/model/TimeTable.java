@@ -18,6 +18,11 @@ public class TimeTable {
     @Column
     private Date dateTime;
 
+    @Column
+    private String dropdown;
+    @Column
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "dentist_id")
     private Dentist dentist;
@@ -29,9 +34,11 @@ public class TimeTable {
     public TimeTable() {
     }
 
-    public TimeTable(Long id, Date dateTime, Dentist dentist, Patient patient) {
+    public TimeTable(Long id, Date dateTime, String dropdown, String description, Dentist dentist, Patient patient) {
         this.id = id;
         this.dateTime = dateTime;
+        this.dropdown = dropdown;
+        this.description = description;
         this.dentist = dentist;
         this.patient = patient;
     }
@@ -50,6 +57,22 @@ public class TimeTable {
 
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getDropdown() {
+        return dropdown;
+    }
+
+    public void setDropdown(String dropdown) {
+        this.dropdown = dropdown;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Dentist getDentist() {

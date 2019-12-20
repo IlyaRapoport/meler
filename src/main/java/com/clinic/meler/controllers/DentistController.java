@@ -1,7 +1,6 @@
 package com.clinic.meler.controllers;
 import com.clinic.meler.dto.DentistDto;
 import com.clinic.meler.mapper.DentistMapper;
-import com.clinic.meler.model.Dentist;
 import com.clinic.meler.service.DentistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,8 +29,8 @@ public class DentistController {
     }
 
     @PostMapping("/dentist")
-    public Dentist createDentist(@RequestBody DentistDto dentistDto) {
-        return dentistService.createDentist(dentistMapper.dtoToDentist(dentistDto));
+    public DentistDto createDentist(@RequestBody DentistDto dentistDto) {
+        return dentistMapper.dentistToDto(dentistService.createDentist(dentistMapper.dtoToDentist(dentistDto)));
     }
 
     @DeleteMapping("/dentist")
@@ -39,8 +38,9 @@ public class DentistController {
         dentistService.deleteDentist(dentistService.findBySurname(surname));
         return "ok";
     }
+
     @PutMapping("/dentist")
-    public Dentist updateDentist(@RequestBody DentistDto dentistDto){
-       return dentistService.updateDentist(dentistMapper.dtoToDentist(dentistDto));
+    public DentistDto updateDentist(@RequestBody DentistDto dentistDto) {
+        return dentistMapper.dentistToDto(dentistService.updateDentist(dentistMapper.dtoToDentist(dentistDto)));
     }
 }

@@ -8,6 +8,11 @@ import java.util.List;
 
 public interface TimeTableService {
     List<TimeTable> findBy(Date date, Dentist dentist, Patient patient);
-    TimeTable create(Date date, String dentist, String patient) throws Exception;
+
+    TimeTable create(TimeTable timeTable);
+
+    TimeTable update(TimeTable timeTable);
+
+    void delete(Long id) throws Exception;
 }
 

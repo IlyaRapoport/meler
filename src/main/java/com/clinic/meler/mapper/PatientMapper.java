@@ -35,4 +35,18 @@ public class PatientMapper {
         }
         return patientDtoList;
     }
+
+    public PatientDto patientToDto(Patient patient) {
+
+        PatientDto patientDto = new PatientDto();
+        patientDto.setId(patient.getId());
+        patientDto.setName(patient.getName());
+        patientDto.setSurname(patient.getSurname());
+        patientDto.setPersonalCode(patient.getPersonalCode());
+        patientDto.setAddress(patient.getAddress());
+        patientDto.setTelephone(patient.getTelephone());
+        patientDto.setDescription(patient.getDescription());
+
+        return patientDto;
+    }
 }

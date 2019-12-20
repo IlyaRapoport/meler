@@ -10,12 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "images")
-public class Images {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(columnDefinition = "BLOB")
     private byte[] img;
     @Column
     private String description;
@@ -25,10 +25,10 @@ public class Images {
 
     private Patient patient;
 
-    public Images() {
+    public Image() {
     }
 
-    public Images(Long id, byte[] img, String description, Patient patient) {
+    public Image(Long id, byte[] img, String description, Patient patient) {
         this.id = id;
         this.img = img;
         this.description = description;

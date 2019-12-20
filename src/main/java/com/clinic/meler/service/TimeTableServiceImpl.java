@@ -1,4 +1,5 @@
 package com.clinic.meler.service;
+import com.clinic.meler.exceptions.NotFoundException;
 import com.clinic.meler.model.Dentist;
 import com.clinic.meler.model.Patient;
 import com.clinic.meler.model.TimeTable;
@@ -15,10 +16,10 @@ public class TimeTableServiceImpl implements TimeTableService {
     private
     TimeTableRepository timeTableRepository;
     @Autowired
-            private
+    private
     DentistService dentistService;
     @Autowired
-            private
+    private
     PatientService patientService;
 
     @Override
@@ -36,19 +37,17 @@ public class TimeTableServiceImpl implements TimeTableService {
     }
 
     @Override
-    public TimeTable create(Date date, String dentist, String patient) throws Exception {
-        TimeTable timeTable = new TimeTable();
-
-        if (date != null) {
-            timeTable.setDateTime(date);
-        }
-        if (dentist != null) {
-            timeTable.setDentist(dentistService.findById(Long.valueOf(dentist)).orElseThrow(()->new Exception("not found")));
-        }
-        if (patient != null) {
-            timeTable.setPatient(patientService.findById(Long.valueOf(patient)).orElseThrow(()->new Exception("not found")));
-        }
-
+    public TimeTable create(TimeTable timeTable) {
         return timeTableRepository.save(timeTable);
+    }
+
+    @Override
+    public TimeTable update(TimeTable timeTable) {
+        return timeTableRepository.save(timeTable);
+    }
+
+    @Override
+    public void delete(Long id) throws Exception {
+        timeTableRepository.delete(timeTableRepository.findById(id).orElseThrow(() -> new NotFoundException("TimeTable not found")));
     }
 }
